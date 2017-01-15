@@ -21,7 +21,7 @@ class FuncsSpec extends FlatSpec with Matchers {
   )
 
   it should "Return some value from the array" in {
-    val search = Funcs.getFirst(cars, (car: Car) => car.name == "Camry" && car.price == 500)
+    val search = GettingStarted.getFirst(cars, (car: Car) => car.name == "Camry" && car.price == 500)
     search.isDefined should be(true)
     Inside.inside(search.get) { case Car(name, price) =>
       name should be("Camry")
@@ -30,25 +30,25 @@ class FuncsSpec extends FlatSpec with Matchers {
   }
 
   it should "Say array is sorted" in {
-    Funcs.isSorted(Array(1, 2, 3, 4, 5, 6), (a:Int, b:Int) => b >= a) should be (true)
+    GettingStarted.isSorted(Array(1, 2, 3, 4, 5, 6), (a:Int, b:Int) => b >= a) should be (true)
   }
 
   it should "Say array of size 1 is sorted" in {
-    Funcs.isSorted(Array(Random.nextInt()), (a:Int, b:Int) => b >= a) should be (true)
+    GettingStarted.isSorted(Array(Random.nextInt()), (a:Int, b:Int) => b >= a) should be (true)
   }
 
   it should "Say array of size 0 is sorted" in {
-    Funcs.isSorted(Array(), (a:Int, b:Int) => b >= a) should be (true)
+    GettingStarted.isSorted(Array(), (a:Int, b:Int) => b >= a) should be (true)
   }
 
   it should "Say it is not sorted" in {
-    Funcs.isSorted(Array(1, 3, 2, 4, 5, 6), (a: Int, b: Int) => b >= a) should be(false)
+    GettingStarted.isSorted(Array(1, 3, 2, 4, 5, 6), (a: Int, b: Int) => b >= a) should be(false)
   }
 
   it should "make some delicious curry" in {
     val stringFormat = "%s has a nice %s that costs %d green backs"
     val camry = cars(0)
-    val curry = Funcs.curry((car:Car, owner:String) => stringFormat.format(owner, car.name, car.price))
+    val curry = GettingStarted.curry((car:Car, owner:String) => stringFormat.format(owner, car.name, car.price))
     val formatFunc: (String) => String = curry(camry)
     val formatted = formatFunc("Jeff")
     println(formatted)
@@ -60,12 +60,16 @@ class FuncsSpec extends FlatSpec with Matchers {
     def canBuy:Int => List[Car] = budget => cars.filter(_.price <= budget).toList
     def walletOf:String => Int = person => people(person)
 
-    val carsForPerson: (String) => List[Car] = Funcs.compose(canBuy, walletOf)
+    val carsForPerson: (String) => List[Car] = GettingStarted.compose(canBuy, walletOf)
     println(carsForPerson("Jeff"))
     println(carsForPerson("Jack"))
     println(carsForPerson("Peter"))
     println(carsForPerson("Bob"))
 
+  }
+
+  it should "add pie" in {
+    GettingStarted.addPie("Cool") should be("CoolPie")
   }
 
 }
