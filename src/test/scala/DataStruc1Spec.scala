@@ -1,11 +1,10 @@
-import DataStruc1.{Cons, Nil, List}
 import org.scalatest.{FlatSpec, Matchers}
 import org.scalatest.Inside.inside
 
 class DataStruc1Spec extends FlatSpec with Matchers {
 
-  val testIntList: List[Int] = Cons(1, Cons(2, Cons(3, Cons(4, Cons(5, Nil)))))
-  val testDoubleList: List[Double] = Cons(1, Cons(2, Cons(3, Cons(4, Cons(5, Nil)))))
+  val testIntList: List[Int] = List(1,2,3,4,5)
+  val testDoubleList: List[Double] = List(1.0, 2.0, 3.0, 4.0, 5.0)
 
   it should "print the match" in {
     println(DataStruc1.matchedValue)

@@ -1,10 +1,9 @@
-import DataStruc1.{Cons, List, Nil}
 
 import scala.annotation.tailrec
 
 object DataStruc2 {
 
-  val testIntList: List[Int] = Cons(1, Cons(2, Cons(3, Cons(4, Cons(5, Nil)))))
+  val testIntList: List[Int] = List(1, 2, 3, 4, 5)
 
   def foldRight[A, B](list: List[A], default: B)(combine: (A, B) => B): B = {
     list match {
@@ -16,7 +15,7 @@ object DataStruc2 {
   @tailrec def foldLeft[A, B](list: List[A], default: B)(combine: (B, A) => B): B = {
     list match {
       case Nil => default
-      case Cons(h, t) => foldLeft(t, combine(h, default))(combine)
+      case Cons(h, t) => foldLeft(t, combine(default, h))(combine)
     }
   }
 
@@ -32,5 +31,7 @@ object DataStruc2 {
   def product2(doubles: List[Double]): Double = foldLeft(doubles, 0.0)(_ * _)
 
   def length2[A](list: List[A]): Int = foldLeft(list, 0)((l, _) => 1 + l)
+
+  def reverse[A](list: List[A]):List[A] = ???
 
 }

@@ -1,15 +1,16 @@
-import DataStruc1.{Cons, List, Nil}
 import org.scalatest.{FlatSpec, Matchers}
 
 class DataStruc2Spec extends FlatSpec with Matchers {
 
-  val testIntList: List[Int] = Cons(1, Cons(2, Cons(3, Cons(4, Cons(5, Nil)))))
-  val testDoubleList: List[Double] = Cons(1, Cons(2, Cons(3, Cons(4, Cons(5, Nil)))))
+  val testIntList: List[Int] = List(1,2,3,4,5)
+  val testDoubleList: List[Double] = List(1.0, 2.0, 3.0, 4.0, 5.0)
 
   it should "print stuff" in {
     println(DataStruc2.foldRight(DataStruc2.testIntList, Nil: List[Int])(Cons(_, _)))
   }
 
-
+  it should "say it's null" in {
+    println(List(1,2,4,5))
+  }
 
 }

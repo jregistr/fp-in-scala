@@ -2,12 +2,6 @@ import scala.annotation.tailrec
 
 object DataStruc1 {
 
-  sealed trait List[+A]
-
-  case object Nil extends List[Nothing]
-
-  case class Cons[+A](head: A, tail: List[A]) extends List[A]
-
   val a: List[Int] = Cons(1, Cons(2, Cons(3, Cons(4, Cons(5, Nil)))))
 
   def sum(sequence: List[Int]): Int = {
