@@ -1,5 +1,7 @@
-import org.scalatest.{FlatSpec, Matchers}
+package p1.ch3.list
+
 import org.scalatest.Inside.inside
+import org.scalatest.{FlatSpec, Matchers}
 
 class DataStruc1Spec extends FlatSpec with Matchers {
 

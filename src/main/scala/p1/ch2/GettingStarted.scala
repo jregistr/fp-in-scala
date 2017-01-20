@@ -1,3 +1,5 @@
+package p1.ch2
+
 import scala.annotation.tailrec
 
 object GettingStarted {

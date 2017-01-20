@@ -1,3 +1,5 @@
+package p1.ch2
+
 import org.scalatest.{FlatSpec, Inside, Matchers}
 
 import scala.util.Random
@@ -57,10 +59,10 @@ class FuncsSpec extends FlatSpec with Matchers {
 
   it should "make a very nice composed function" in {
     // A:Person, B:Int(Budget), C:Cars
-    def canBuy:Int => List[Car] = budget => cars.filter(_.price <= budget).toList
+    def canBuy:Int => scala.List[Car] = budget => cars.filter(_.price <= budget).toList
     def walletOf:String => Int = person => people(person)
 
-    val carsForPerson: (String) => List[Car] = GettingStarted.compose(canBuy, walletOf)
+    val carsForPerson: (String) => scala.List[Car] = GettingStarted.compose(canBuy, walletOf)
     println(carsForPerson("Jeff"))
     println(carsForPerson("Jack"))
     println(carsForPerson("Peter"))

@@ -1,4 +1,7 @@
+package p1.ch3.list
+
 import scala.annotation.tailrec
+
 
 object DataStruc1 {
 
