@@ -84,3 +84,7 @@ project/plugins/project/
 .ensime
 
 # End of https://www.gitignore.io/api/intellij,sbt,scala
+
+.idea
+
+.DS_Store
